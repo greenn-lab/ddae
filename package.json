@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "vanilla-js based calendar component.",
   "scripts": {
-    "serve": "rollup -c -w"
+    "serve": "webpack server --hot --inline",
+    "build": "webpack --mode=production"
   },
   "keywords": [
     "calendar",
