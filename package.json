@@ -2,6 +2,7 @@
   "name": "tae",
   "version": "0.1.0",
   "description": "vanilla-js based calendar component.",
+  "main": "index.js",
   "scripts": {
     "serve": "webpack server --hot --inline",
     "build": "webpack --mode=production"
@@ -21,9 +22,11 @@
     "@babel/runtime-corejs3": "^7.14.8",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.1.0",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
+    "ts-loader": "^9.2.4",
     "tslib": "^2.1.0",
     "typescript": "^4.3.5",
     "webpack": "^5.46.0",
@@ -31,10 +34,10 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "core-js": "^3.15.2"
+    "core-js": "^3.15.2",
+    "nal": "^0.1.0"
   },
   "browserslist": [
-    "IE 11",
-    "last 3 Chrome versions"
+    "ie >= 11"
   ]
 }

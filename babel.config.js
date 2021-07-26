@@ -1,6 +1,9 @@
 module.exports = {
   presets: [
     [
+      "@babel/preset-typescript"
+    ],
+    [
       "@babel/preset-env",
       {
         useBuiltIns: "entry",
@@ -8,9 +11,6 @@ module.exports = {
           version: 3
         }
       }
-    ],
-    [
-      "@babel/preset-typescript"
     ]
   ],
   "plugins": [
