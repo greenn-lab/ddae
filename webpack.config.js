@@ -1,17 +1,13 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    tae: './src/index.ts'
-  },
-  resolve: {
-    extensions: ['.ts', '.js']
+    ddae: './src/index.js'
   },
   module: {
     rules: [
       {
-        test: /.ts$/,
+        test: /.js$/,
         use: ['babel-loader'],
         exclude: /node_modules/
       },
@@ -30,10 +26,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'tae.css'
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
+      filename: 'ddae.css'
     })
   ],
   devtool: 'source-map',

@@ -1,12 +1,83 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.ddae__scenery {
+  background-color: transparent;
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 9999;
 
-
-  h1 {
-    color: red;
+  &--active {
+    display: block;
   }
 }
 
+.ddae {
+  overflow: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &--yearly {
+    .ddae__days {
+      display: none !important;
+    }
+
+    .ddae__years {
+      display: flex !important;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__btn-prev::before {
+    content: '<'
+  }
+
+  &__btn-next::before {
+    content: '>'
+  }
+
+  &__days,
+  &__years {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem !important;
+  }
+
+  &__years {
+    display: none;
+  }
+
+  &__day-name,
+  &__day {
+    width: calc(100% / 7);
+  }
+
+  &__day {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__year {
+    text-align: center;
+    width: calc(100% / 4);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+}

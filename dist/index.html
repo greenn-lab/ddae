@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DDae</title>
+  <link rel="stylesheet" href="ddae.css">
+</head>
+<body>
+
+<div>
+  <input type="text" id="i1">
+</div>
+<div>
+  <input type="text" id="i2">
+  <input type="text" id="i3">
+</div>
+<div>
+  <button id="i4">Calendar</button>
+</div>
+
+
+
+<script src="ddae.js"></script>
+<script defer>
+  document.querySelector('#i1').addEventListener('focus', function (e) {
+    calendar(e.target).on()
+  })
+
+  document.querySelector('#i2').addEventListener('focus', function (e) {
+    calendar(e.target).on()
+  })
+
+  document.querySelector('#i3').addEventListener('focus', function (e) {
+    calendar(e.target).on()
+  })
+
+  document.querySelector('#i4').addEventListener('click', function (e) {
+    calendar(e.target).on()
+  })
+</script>
+</body>
+</html>
