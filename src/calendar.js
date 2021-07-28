@@ -25,7 +25,6 @@ const off = () => {
 export const mode = () => {
   if ('daily' === options.mode) {
     options.mode = 'yearly'
-    element.root.classList.add('ddae--yearly')
   } else {
     options.mode = 'daily'
     element.root.classList.remove('ddae--yearly')
@@ -110,6 +109,8 @@ export default function (context, _options = {}) {
   initialize(context, _options)
 
   ready(context)
+
+  console.log(context, options)
 
   return {
     on,

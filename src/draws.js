@@ -1,14 +1,16 @@
-export const drawYears = ({yearCells}, options) => {
+export const drawYears = ({root, yearCells}, options) => {
+  root.classList.add('ddae--yearly')
+
   yearCells.forEach((cell, i) => cell.innerHTML = options.firstYear + i)
 }
 
 export const drawDates = ({root, dayCells, yearMonth}, options) => {
+  root.classList.remove('ddae--yearly')
+
   drawHeader(yearMonth, options)
 
   const {currently} = options
   const firstDate = new Date(currently.getFullYear(), currently.getMonth(), 1)
-
-  console.log('drawDates', currently)
 
   dayCells[0]
       .style.marginLeft = `calc(100% / 7 * ${firstDate.getDay()})`
