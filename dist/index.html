@@ -26,20 +26,21 @@
 <script src="ddae.js"></script>
 <script defer>
   document.querySelector('#i1').addEventListener('focus', function (e) {
-    calendar(e.target).on()
+    Date.picker(e.target)
   })
 
   document.querySelector('#i2').addEventListener('focus', function (e) {
-    calendar(e.target).on()
+    Date.picker(e.target)
   })
 
   document.querySelector('#i3').addEventListener('focus', function (e) {
-    calendar(e.target).on()
+    Date.picker(e.target)
   })
 
-  document.querySelector('#i4').addEventListener('click', function (e) {
-    calendar(e.target).on()
-  })
+    Date.picker(document.querySelector('#i4'), {
+      container: document.querySelector('#i4').parentElement,
+      inline: true
+    })
 </script>
 </body>
 </html>

@@ -19,8 +19,7 @@ module.exports = {
             implementation: require('sass')
           }
         }],
-        exclude: /node_modules/,
-
+        exclude: /node_modules/
       }
     ]
   },
@@ -29,7 +28,7 @@ module.exports = {
       filename: 'ddae.css'
     })
   ],
-  devtool: 'source-map',
+  devtool: 'cheap-source-map',
   mode: 'development',
   target: process.env.NODE_ENV !== 'production' ? 'web' : 'browserslist',
   devServer: {

@@ -11,6 +11,14 @@
   &--active {
     display: block;
   }
+
+  &--inline {
+    display: block;
+    height: auto;
+    position: static;
+    width: auto;
+    z-index: auto;
+  }
 }
 
 .ddae {

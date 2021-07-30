@@ -1,63 +1,44 @@
-import {mode, on} from "./calendar";
+import {changeMode, close, defineContext, open} from './calendar'
 
-export default function (element, options) {
+export default function (context) {
   const {
+    inline,
     scenery,
-    root,
-    yearMonth,
-    button,
-    yearCells,
-    years
-  } = element
+    root
+  } = context
 
-  document.addEventListener('keyup', e => {
+  !inline && document.addEventListener('keyup', e => {
     if (/Esc|Escape/.test(e.key)) {
-      scenery.classList.remove('ddae__scenery--active')
+      close()
     }
   })
 
-  scenery.addEventListener('click', () => {
-    scenery.classList.remove('ddae__scenery--active')
+  !inline && scenery.addEventListener('click', () => {
+    close()
   })
 
   root.addEventListener('click', e => {
     e.stopPropagation()
-  })
 
-  yearMonth.addEventListener('click', () => {
-    options.firstYear = options.currently.getFullYear()
-    mode()
-  })
+    inline && defineContext(context.target)
 
-  button.prev.addEventListener('click', () => {
-    if ('daily' === options.mode) {
-      const {currently} = options
-      const prevMonth = currently.getMonth() - 1
+    const classes = e.target.classList;
 
-      currently.setMonth(prevMonth)
-    } else {
-      options.firstYear -= yearCells.length
+    if (classes.contains('ddae__year')) {
+      context.now.setFullYear(Number(e.target.textContent))
+      console.log('year', context.now, context)
+
+      changeMode()
+    } else if (classes.contains('ddae__day')) {
+      context.now.setDate(Number(e.target.textContent))
+      console.log('year', context.now, context)
+    } else if (classes.contains('ddae__title')) {
+      changeMode()
+    } else if (classes.contains('ddae__btn-prev')) {
+      open(-1)
+    } else if (classes.contains('ddae__btn-next')) {
+      open(1)
     }
-
-    on()
   })
 
-  button.next.addEventListener('click', () => {
-    if ('daily' === options.mode) {
-      const {currently} = options
-      const nextMonth = currently.getMonth() + 1
-
-      currently.setMonth(nextMonth)
-    } else {
-      options.firstYear += yearCells.length
-    }
-
-    on()
-  })
-
-  years.addEventListener('click', e => {
-    options.currently.setFullYear(Number(e.target.textContent))
-    console.log(options.currently, e.target.textContent)
-    mode()
-  })
 }

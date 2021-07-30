@@ -1,23 +1,23 @@
-export const drawYears = ({root, yearCells}, options) => {
+export const drawYears = ({root, years, firstOfYears}) => {
   root.classList.add('ddae--yearly')
-
-  yearCells.forEach((cell, i) => cell.innerHTML = options.firstYear + i)
+  years.forEach((cell, i) => cell.innerHTML = firstOfYears + i)
 }
 
-export const drawDates = ({root, dayCells, yearMonth}, options) => {
+export const drawHeader = ({title, now, name: {months}}) => {
+  title.innerHTML = `${now.getFullYear()}. ${months[now.getMonth()]}`
+}
+
+export const drawDates = ({root, days, now}) => {
   root.classList.remove('ddae--yearly')
 
-  drawHeader(yearMonth, options)
+  const firstDate = new Date(now.getFullYear(), now.getMonth(), 1)
 
-  const {currently} = options
-  const firstDate = new Date(currently.getFullYear(), currently.getMonth(), 1)
-
-  dayCells[0]
+  days[0]
       .style.marginLeft = `calc(100% / 7 * ${firstDate.getDay()})`
 
   const lastDateOfMonth = getLastDateOfMonth(firstDate)
 
-  dayCells.forEach((cell, i) =>
+  days.forEach((cell, i) =>
       cell.innerHTML = lastDateOfMonth > i ? i + 1 : '')
 }
 
@@ -26,11 +26,4 @@ const getLastDateOfMonth = (date) => {
   date.setDate(0)
 
   return date.getDate()
-}
-
-const drawHeader = (yearMonth, options) => {
-  const {currently} = options
-
-  yearMonth.innerHTML =
-      `${currently.getFullYear()}. ${options.name.months[currently.getMonth()]}`
 }
