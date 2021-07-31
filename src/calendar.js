@@ -1,5 +1,5 @@
 import {DEFAULT_OPTIONS, MODE_DAILY, MODE_YEARLY} from "./index";
-import {drawDates, drawHeader, drawYears} from "./draws";
+import {drawDates, drawTitle, drawYears} from "./draws";
 import events from "./events";
 
 import './sass/default.scss'
@@ -33,7 +33,7 @@ const openDates = (movement) => {
   context.now.setMonth(context.now.getMonth() + movement)
   drawDates(context)
 
-  drawHeader(context)
+  drawTitle(context)
 }
 
 const openYears = (movement) => {

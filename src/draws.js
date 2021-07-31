@@ -3,14 +3,17 @@ export const drawYears = ({root, years, firstOfYears}) => {
   years.forEach((cell, i) => cell.innerHTML = firstOfYears + i)
 }
 
-export const drawHeader = ({title, now, name: {months}}) => {
+export const drawTitle = ({title, now, name: {months}}) => {
   title.innerHTML = `${now.getFullYear()}. ${months[now.getMonth()]}`
 }
 
-export const drawDates = ({root, days, now}) => {
+export const drawDates = ({root, days, now, name}) => {
   root.classList.remove('ddae--yearly')
 
   const firstDate = new Date(now.getFullYear(), now.getMonth(), 1)
+
+  root.querySelectorAll('.ddae__day-name')
+  .forEach((day, i) => day.textContent = name.days[i])
 
   days[0]
       .style.marginLeft = `calc(100% / 7 * ${firstDate.getDay()})`
