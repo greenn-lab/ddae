@@ -7,6 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DDae</title>
   <link rel="stylesheet" href="ddae.css">
+  <style>
+    html {
+      font-family: Roboto, 'Helvetica Neue', sans-serif;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,7 +25,6 @@
 <div>
   <button id="i4">Calendar</button>
 </div>
-
 
 
 <script src="ddae.js"></script>
@@ -37,10 +41,10 @@
     Date.picker(e.target)
   })
 
-    Date.picker(document.querySelector('#i4'), {
-      container: document.querySelector('#i4').parentElement,
-      inline: true
-    })
+  Date.picker(document.querySelector('#i4'), {
+    container: document.querySelector('#i4').parentElement,
+    inline: true
+  })
 </script>
 </body>
 </html>

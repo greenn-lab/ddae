@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .ddae__scenery {
   background-color: transparent;
   display: none;
@@ -22,7 +24,10 @@
 }
 
 .ddae {
+  background-color: #FFF;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
   overflow: hidden;
+  padding: 1rem .5rem 2rem;
 
   * {
     box-sizing: border-box;
@@ -44,19 +49,64 @@
     padding: 0;
   }
 
+  header {
+    display: flex;
+    height: 3rem;
+    align-items: center;
+  }
+
+  &__title {
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-weight: 700;
+    line-height: 3rem;
+    padding: 0 1rem;
+    text-transform: uppercase;
+  }
+
+  &__title::after {
+    color: #AAA;
+    content: '\2023';
+    display: inline-block;
+    transform: rotate(90deg);
+  }
+
+  &__title:hover {
+    cursor: pointer;
+  }
+
   &__btn-prev::before {
-    content: '<'
+    content: '\0276E'
   }
 
   &__btn-next::before {
-    content: '>'
+    content: '\0276F'
+  }
+
+  &__btn-prev,
+  &__btn-next {
+    background-color: transparent;
+    border: 0;
+    color: #AAA;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  &__btn-prev:hover,
+  &__btn-next:hover {
+    background-color: #EEEE;
+    border-radius: 1.5rem;
+    color: inherit;
+    cursor: pointer;
   }
 
   &__days,
   &__years {
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem !important;
+    line-height: 2.3rem;
   }
 
   &__years {
@@ -65,13 +115,35 @@
 
   &__day-name,
   &__day {
+    text-align: center;
     width: calc(100% / 7);
+  }
+
+  &__day-name {
+    border-bottom: 1px solid #DDD;
+    color: #AAA;
+    font-size: .8rem;
+    margin: .5rem 0 .3rem;
+    text-transform: uppercase;
   }
 
   &__day {
     &:hover,
     &:focus {
-      cursor: pointer;
+      position: relative;
+
+      &::before {
+        background-color: #EEEA;
+        border-radius: 1rem;
+        content: '';
+        cursor: pointer;
+        display: block;
+        height: 2rem;
+        left: 1rem;
+        position: absolute;
+        top: .15rem;
+        width: 2rem;
+      }
     }
 
     &:empty {
@@ -86,6 +158,20 @@
     &:hover,
     &:focus {
       cursor: pointer;
+      position: relative;
+
+      &::before {
+        background-color: #EEEA;
+        border-radius: 1rem;
+        content: '';
+        display: block;
+        height: 2rem;
+        left: .5rem;
+        position: absolute;
+        top: .15rem;
+        width: calc(100% - 1rem);
+      }
+
     }
   }
 }
